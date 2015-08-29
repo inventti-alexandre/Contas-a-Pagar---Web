@@ -1,0 +1,50 @@
+﻿@model Contas_a_Pagar___Web.Models.Despesa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Despesa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorPrevisto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorPrevisto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lancamento1.ContaCredito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lancamento1.ContaCredito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pagamento1.Fornecimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pagamento1.Fornecimento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

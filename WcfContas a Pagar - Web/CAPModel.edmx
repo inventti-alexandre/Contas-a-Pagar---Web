@@ -1,0 +1,1020 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Agencia">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Banco" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Banco" Type="int" Nullable="false" />
+          <Property Name="Endereco" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cidade" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gerente" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Auditoria">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Evento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataHora" Type="datetime" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContaCorrente">
+          <Key>
+            <PropertyRef Name="Conta" />
+            <PropertyRef Name="Agencia" />
+            <PropertyRef Name="Banco" />
+          </Key>
+          <Property Name="Conta" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Agencia" Type="int" Nullable="false" />
+          <Property Name="Limite" Type="money" Nullable="false" />
+          <Property Name="Banco" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Despesa">
+          <Key>
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="Lancamento" />
+            <PropertyRef Name="Pagamento" />
+          </Key>
+          <Property Name="Numero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lancamento" Type="int" Nullable="false" />
+          <Property Name="ValorPrevisto" Type="money" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pagamento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DespesaEventual">
+          <Key>
+            <PropertyRef Name="Numero" />
+          </Key>
+          <Property Name="Numero" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DespesaMensal">
+          <Key>
+            <PropertyRef Name="Numero" />
+          </Key>
+          <Property Name="Numero" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fornecedor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RazaoSocial" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="CNPJ" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="Endereco" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cidade" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FornecimentoServico">
+          <Key>
+            <PropertyRef Name="Fornecedor" />
+            <PropertyRef Name="Servico" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Fornecedor" Type="int" Nullable="false" />
+          <Property Name="Servico" Type="int" Nullable="false" />
+          <Property Name="Data" Type="datetime" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lancamento">
+          <Key>
+            <PropertyRef Name="Numero" />
+          </Key>
+          <Property Name="Numero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataLancamento" Type="datetime" Nullable="false" />
+          <Property Name="ContaCredito" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Valor" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pagamento">
+          <Key>
+            <PropertyRef Name="Fornecimento" />
+          </Key>
+          <Property Name="Fornecimento" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="money" Nullable="false" />
+          <Property Name="DataEmissao" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permissao">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlanoContas">
+          <Key>
+            <PropertyRef Name="Conta" />
+          </Key>
+          <Property Name="Conta" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Consolidacao" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servico">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PrecoUnitario" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Senha" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario_Permissao">
+          <Key>
+            <PropertyRef Name="Login" />
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Agencia_Banco">
+          <End Role="Banco" Type="Self.Banco" Multiplicity="1" />
+          <End Role="Agencia" Type="Self.Agencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Agencia">
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auditoria_Evento">
+          <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+          <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evento">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Auditoria">
+              <PropertyRef Name="Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCorrente_Agencia">
+          <End Role="Agencia" Type="Self.Agencia" Multiplicity="1" />
+          <End Role="ContaCorrente" Type="Self.ContaCorrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agencia">
+              <PropertyRef Name="ID" />
+              <PropertyRef Name="Banco" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="Agencia" />
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCorrente_PlanoContas">
+          <End Role="PlanoContas" Type="Self.PlanoContas" Multiplicity="1" />
+          <End Role="ContaCorrente" Type="Self.ContaCorrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlanoContas">
+              <PropertyRef Name="Conta" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="Conta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_DespesaEventual">
+          <End Role="DespesaEventual" Type="Self.DespesaEventual" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DespesaEventual">
+              <PropertyRef Name="Numero" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Numero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_DespesaMensal">
+          <End Role="DespesaMensal" Type="Self.DespesaMensal" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DespesaMensal">
+              <PropertyRef Name="Numero" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Numero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_Lancamento1">
+          <End Role="Lancamento" Type="Self.Lancamento" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lancamento">
+              <PropertyRef Name="Numero" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Lancamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_Pagamento">
+          <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pagamento">
+              <PropertyRef Name="Fornecimento" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Pagamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FornecimentoServico_Fornecedor">
+          <End Role="Fornecedor" Type="Self.Fornecedor" Multiplicity="1" />
+          <End Role="FornecimentoServico" Type="Self.FornecimentoServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fornecedor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FornecimentoServico">
+              <PropertyRef Name="Fornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FornecimentoServico_Pagamento">
+          <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="1" />
+          <End Role="FornecimentoServico" Type="Self.FornecimentoServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pagamento">
+              <PropertyRef Name="Fornecimento" />
+            </Principal>
+            <Dependent Role="FornecimentoServico">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FornecimentoServico_Servico">
+          <End Role="Servico" Type="Self.Servico" Multiplicity="1" />
+          <End Role="FornecimentoServico" Type="Self.FornecimentoServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servico">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FornecimentoServico">
+              <PropertyRef Name="Servico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lancamento_PlanoContas">
+          <End Role="PlanoContas" Type="Self.PlanoContas" Multiplicity="1" />
+          <End Role="Lancamento" Type="Self.Lancamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlanoContas">
+              <PropertyRef Name="Conta" />
+            </Principal>
+            <Dependent Role="Lancamento">
+              <PropertyRef Name="ContaCredito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Permissao_Permissao">
+          <End Role="Permissao" Type="Self.Permissao" Multiplicity="1" />
+          <End Role="Usuario_Permissao" Type="Self.Usuario_Permissao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permissao">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Usuario_Permissao">
+              <PropertyRef Name="Nome" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Permissao_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Usuario_Permissao" Type="Self.Usuario_Permissao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="Usuario_Permissao">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Agencia" EntityType="Self.Agencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Auditoria" EntityType="Self.Auditoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banco" EntityType="Self.Banco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContaCorrente" EntityType="Self.ContaCorrente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Despesa" EntityType="Self.Despesa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DespesaEventual" EntityType="Self.DespesaEventual" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DespesaMensal" EntityType="Self.DespesaMensal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fornecedor" EntityType="Self.Fornecedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FornecimentoServico" EntityType="Self.FornecimentoServico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lancamento" EntityType="Self.Lancamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pagamento" EntityType="Self.Pagamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permissao" EntityType="Self.Permissao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlanoContas" EntityType="Self.PlanoContas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servico" EntityType="Self.Servico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario_Permissao" EntityType="Self.Usuario_Permissao" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Agencia_Banco" Association="Self.FK_Agencia_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="Agencia" EntitySet="Agencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auditoria_Evento" Association="Self.FK_Auditoria_Evento">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Auditoria" EntitySet="Auditoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCorrente_Agencia" Association="Self.FK_ContaCorrente_Agencia">
+            <End Role="Agencia" EntitySet="Agencia" />
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCorrente_PlanoContas" Association="Self.FK_ContaCorrente_PlanoContas">
+            <End Role="PlanoContas" EntitySet="PlanoContas" />
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_DespesaEventual" Association="Self.FK_Despesa_DespesaEventual">
+            <End Role="DespesaEventual" EntitySet="DespesaEventual" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_DespesaMensal" Association="Self.FK_Despesa_DespesaMensal">
+            <End Role="DespesaMensal" EntitySet="DespesaMensal" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_Lancamento1" Association="Self.FK_Despesa_Lancamento1">
+            <End Role="Lancamento" EntitySet="Lancamento" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_Pagamento" Association="Self.FK_Despesa_Pagamento">
+            <End Role="Pagamento" EntitySet="Pagamento" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FornecimentoServico_Fornecedor" Association="Self.FK_FornecimentoServico_Fornecedor">
+            <End Role="Fornecedor" EntitySet="Fornecedor" />
+            <End Role="FornecimentoServico" EntitySet="FornecimentoServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FornecimentoServico_Pagamento" Association="Self.FK_FornecimentoServico_Pagamento">
+            <End Role="Pagamento" EntitySet="Pagamento" />
+            <End Role="FornecimentoServico" EntitySet="FornecimentoServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FornecimentoServico_Servico" Association="Self.FK_FornecimentoServico_Servico">
+            <End Role="Servico" EntitySet="Servico" />
+            <End Role="FornecimentoServico" EntitySet="FornecimentoServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lancamento_PlanoContas" Association="Self.FK_Lancamento_PlanoContas">
+            <End Role="PlanoContas" EntitySet="PlanoContas" />
+            <End Role="Lancamento" EntitySet="Lancamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Permissao_Permissao" Association="Self.FK_Usuario_Permissao_Permissao">
+            <End Role="Permissao" EntitySet="Permissao" />
+            <End Role="Usuario_Permissao" EntitySet="Usuario_Permissao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Permissao_Usuario" Association="Self.FK_Usuario_Permissao_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Usuario_Permissao" EntitySet="Usuario_Permissao" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Agencia">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Banco" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Banco" Type="Int32" Nullable="false" />
+          <Property Name="Endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gerente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Banco1" Relationship="Self.FK_Agencia_Banco" FromRole="Agencia" ToRole="Banco" />
+          <NavigationProperty Name="ContaCorrente" Relationship="Self.FK_ContaCorrente_Agencia" FromRole="Agencia" ToRole="ContaCorrente" />
+        </EntityType>
+        <EntityType Name="Auditoria">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Evento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataHora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Evento1" Relationship="Self.FK_Auditoria_Evento" FromRole="Auditoria" ToRole="Evento" />
+        </EntityType>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Agencia" Relationship="Self.FK_Agencia_Banco" FromRole="Banco" ToRole="Agencia" />
+        </EntityType>
+        <EntityType Name="ContaCorrente">
+          <Key>
+            <PropertyRef Name="Conta" />
+            <PropertyRef Name="Agencia" />
+            <PropertyRef Name="Banco" />
+          </Key>
+          <Property Name="Conta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Agencia" Type="Int32" Nullable="false" />
+          <Property Name="Limite" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Banco" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agencia1" Relationship="Self.FK_ContaCorrente_Agencia" FromRole="ContaCorrente" ToRole="Agencia" />
+          <NavigationProperty Name="PlanoContas" Relationship="Self.FK_ContaCorrente_PlanoContas" FromRole="ContaCorrente" ToRole="PlanoContas" />
+        </EntityType>
+        <EntityType Name="Despesa">
+          <Key>
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="Lancamento" />
+            <PropertyRef Name="Pagamento" />
+          </Key>
+          <Property Name="Numero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lancamento" Type="Int32" Nullable="false" />
+          <Property Name="ValorPrevisto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pagamento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DespesaEventual" Relationship="Self.FK_Despesa_DespesaEventual" FromRole="Despesa" ToRole="DespesaEventual" />
+          <NavigationProperty Name="DespesaMensal" Relationship="Self.FK_Despesa_DespesaMensal" FromRole="Despesa" ToRole="DespesaMensal" />
+          <NavigationProperty Name="Lancamento1" Relationship="Self.FK_Despesa_Lancamento1" FromRole="Despesa" ToRole="Lancamento" />
+          <NavigationProperty Name="Pagamento1" Relationship="Self.FK_Despesa_Pagamento" FromRole="Despesa" ToRole="Pagamento" />
+        </EntityType>
+        <EntityType Name="DespesaEventual">
+          <Key>
+            <PropertyRef Name="Numero" />
+          </Key>
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Despesa" Relationship="Self.FK_Despesa_DespesaEventual" FromRole="DespesaEventual" ToRole="Despesa" />
+        </EntityType>
+        <EntityType Name="DespesaMensal">
+          <Key>
+            <PropertyRef Name="Numero" />
+          </Key>
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Despesa" Relationship="Self.FK_Despesa_DespesaMensal" FromRole="DespesaMensal" ToRole="Despesa" />
+        </EntityType>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Auditoria" Relationship="Self.FK_Auditoria_Evento" FromRole="Evento" ToRole="Auditoria" />
+        </EntityType>
+        <EntityType Name="Fornecedor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RazaoSocial" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CNPJ" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="FornecimentoServico" Relationship="Self.FK_FornecimentoServico_Fornecedor" FromRole="Fornecedor" ToRole="FornecimentoServico" />
+        </EntityType>
+        <EntityType Name="FornecimentoServico">
+          <Key>
+            <PropertyRef Name="Fornecedor" />
+            <PropertyRef Name="Servico" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Fornecedor" Type="Int32" Nullable="false" />
+          <Property Name="Servico" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Fornecedor1" Relationship="Self.FK_FornecimentoServico_Fornecedor" FromRole="FornecimentoServico" ToRole="Fornecedor" />
+          <NavigationProperty Name="Pagamento" Relationship="Self.FK_FornecimentoServico_Pagamento" FromRole="FornecimentoServico" ToRole="Pagamento" />
+          <NavigationProperty Name="Servico1" Relationship="Self.FK_FornecimentoServico_Servico" FromRole="FornecimentoServico" ToRole="Servico" />
+        </EntityType>
+        <EntityType Name="Lancamento">
+          <Key>
+            <PropertyRef Name="Numero" />
+          </Key>
+          <Property Name="Numero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataLancamento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContaCredito" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Despesa" Relationship="Self.FK_Despesa_Lancamento1" FromRole="Lancamento" ToRole="Despesa" />
+          <NavigationProperty Name="PlanoContas" Relationship="Self.FK_Lancamento_PlanoContas" FromRole="Lancamento" ToRole="PlanoContas" />
+        </EntityType>
+        <EntityType Name="Pagamento">
+          <Key>
+            <PropertyRef Name="Fornecimento" />
+          </Key>
+          <Property Name="Fornecimento" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="DataEmissao" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Despesa" Relationship="Self.FK_Despesa_Pagamento" FromRole="Pagamento" ToRole="Despesa" />
+          <NavigationProperty Name="FornecimentoServico" Relationship="Self.FK_FornecimentoServico_Pagamento" FromRole="Pagamento" ToRole="FornecimentoServico" />
+        </EntityType>
+        <EntityType Name="Permissao">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.Usuario_Permissao" FromRole="Permissao" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="PlanoContas">
+          <Key>
+            <PropertyRef Name="Conta" />
+          </Key>
+          <Property Name="Conta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Consolidacao" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ContaCorrente" Relationship="Self.FK_ContaCorrente_PlanoContas" FromRole="PlanoContas" ToRole="ContaCorrente" />
+          <NavigationProperty Name="Lancamento" Relationship="Self.FK_Lancamento_PlanoContas" FromRole="PlanoContas" ToRole="Lancamento" />
+        </EntityType>
+        <EntityType Name="Servico">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PrecoUnitario" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="FornecimentoServico" Relationship="Self.FK_FornecimentoServico_Servico" FromRole="Servico" ToRole="FornecimentoServico" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Senha" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Permissao" Relationship="Self.Usuario_Permissao" FromRole="Usuario" ToRole="Permissao" />
+        </EntityType>
+        <Association Name="FK_Agencia_Banco">
+          <End Role="Banco" Type="Self.Banco" Multiplicity="1" />
+          <End Role="Agencia" Type="Self.Agencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Agencia">
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCorrente_Agencia">
+          <End Role="Agencia" Type="Self.Agencia" Multiplicity="1" />
+          <End Role="ContaCorrente" Type="Self.ContaCorrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agencia">
+              <PropertyRef Name="ID" />
+              <PropertyRef Name="Banco" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="Agencia" />
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auditoria_Evento">
+          <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+          <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evento">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Auditoria">
+              <PropertyRef Name="Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCorrente_PlanoContas">
+          <End Role="PlanoContas" Type="Self.PlanoContas" Multiplicity="1" />
+          <End Role="ContaCorrente" Type="Self.ContaCorrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlanoContas">
+              <PropertyRef Name="Conta" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="Conta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_DespesaEventual">
+          <End Role="DespesaEventual" Type="Self.DespesaEventual" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DespesaEventual">
+              <PropertyRef Name="Numero" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Numero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_DespesaMensal">
+          <End Role="DespesaMensal" Type="Self.DespesaMensal" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DespesaMensal">
+              <PropertyRef Name="Numero" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Numero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_Lancamento1">
+          <End Role="Lancamento" Type="Self.Lancamento" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lancamento">
+              <PropertyRef Name="Numero" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Lancamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_Pagamento">
+          <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pagamento">
+              <PropertyRef Name="Fornecimento" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Pagamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FornecimentoServico_Fornecedor">
+          <End Role="Fornecedor" Type="Self.Fornecedor" Multiplicity="1" />
+          <End Role="FornecimentoServico" Type="Self.FornecimentoServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fornecedor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FornecimentoServico">
+              <PropertyRef Name="Fornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FornecimentoServico_Pagamento">
+          <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="1" />
+          <End Role="FornecimentoServico" Type="Self.FornecimentoServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pagamento">
+              <PropertyRef Name="Fornecimento" />
+            </Principal>
+            <Dependent Role="FornecimentoServico">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FornecimentoServico_Servico">
+          <End Role="Servico" Type="Self.Servico" Multiplicity="1" />
+          <End Role="FornecimentoServico" Type="Self.FornecimentoServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servico">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FornecimentoServico">
+              <PropertyRef Name="Servico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lancamento_PlanoContas">
+          <End Role="PlanoContas" Type="Self.PlanoContas" Multiplicity="1" />
+          <End Role="Lancamento" Type="Self.Lancamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlanoContas">
+              <PropertyRef Name="Conta" />
+            </Principal>
+            <Dependent Role="Lancamento">
+              <PropertyRef Name="ContaCredito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Usuario_Permissao">
+          <End Role="Permissao" Type="Self.Permissao" Multiplicity="*" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="CAPEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Agencia" EntityType="Self.Agencia" />
+          <EntitySet Name="Auditoria" EntityType="Self.Auditoria" />
+          <EntitySet Name="Banco" EntityType="Self.Banco" />
+          <EntitySet Name="ContaCorrente" EntityType="Self.ContaCorrente" />
+          <EntitySet Name="Despesa" EntityType="Self.Despesa" />
+          <EntitySet Name="DespesaEventual" EntityType="Self.DespesaEventual" />
+          <EntitySet Name="DespesaMensal" EntityType="Self.DespesaMensal" />
+          <EntitySet Name="Evento" EntityType="Self.Evento" />
+          <EntitySet Name="Fornecedor" EntityType="Self.Fornecedor" />
+          <EntitySet Name="FornecimentoServico" EntityType="Self.FornecimentoServico" />
+          <EntitySet Name="Lancamento" EntityType="Self.Lancamento" />
+          <EntitySet Name="Pagamento" EntityType="Self.Pagamento" />
+          <EntitySet Name="Permissao" EntityType="Self.Permissao" />
+          <EntitySet Name="PlanoContas" EntityType="Self.PlanoContas" />
+          <EntitySet Name="Servico" EntityType="Self.Servico" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_Agencia_Banco" Association="Self.FK_Agencia_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="Agencia" EntitySet="Agencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCorrente_Agencia" Association="Self.FK_ContaCorrente_Agencia">
+            <End Role="Agencia" EntitySet="Agencia" />
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auditoria_Evento" Association="Self.FK_Auditoria_Evento">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Auditoria" EntitySet="Auditoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCorrente_PlanoContas" Association="Self.FK_ContaCorrente_PlanoContas">
+            <End Role="PlanoContas" EntitySet="PlanoContas" />
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_DespesaEventual" Association="Self.FK_Despesa_DespesaEventual">
+            <End Role="DespesaEventual" EntitySet="DespesaEventual" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_DespesaMensal" Association="Self.FK_Despesa_DespesaMensal">
+            <End Role="DespesaMensal" EntitySet="DespesaMensal" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_Lancamento1" Association="Self.FK_Despesa_Lancamento1">
+            <End Role="Lancamento" EntitySet="Lancamento" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_Pagamento" Association="Self.FK_Despesa_Pagamento">
+            <End Role="Pagamento" EntitySet="Pagamento" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FornecimentoServico_Fornecedor" Association="Self.FK_FornecimentoServico_Fornecedor">
+            <End Role="Fornecedor" EntitySet="Fornecedor" />
+            <End Role="FornecimentoServico" EntitySet="FornecimentoServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FornecimentoServico_Pagamento" Association="Self.FK_FornecimentoServico_Pagamento">
+            <End Role="Pagamento" EntitySet="Pagamento" />
+            <End Role="FornecimentoServico" EntitySet="FornecimentoServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FornecimentoServico_Servico" Association="Self.FK_FornecimentoServico_Servico">
+            <End Role="Servico" EntitySet="Servico" />
+            <End Role="FornecimentoServico" EntitySet="FornecimentoServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lancamento_PlanoContas" Association="Self.FK_Lancamento_PlanoContas">
+            <End Role="PlanoContas" EntitySet="PlanoContas" />
+            <End Role="Lancamento" EntitySet="Lancamento" />
+          </AssociationSet>
+          <AssociationSet Name="Usuario_Permissao" Association="Self.Usuario_Permissao">
+            <End Role="Permissao" EntitySet="Permissao" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="CAPEntities">
+          <EntitySetMapping Name="Agencia">
+            <EntityTypeMapping TypeName="Model.Agencia">
+              <MappingFragment StoreEntitySet="Agencia">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Gerente" ColumnName="Gerente" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Auditoria">
+            <EntityTypeMapping TypeName="Model.Auditoria">
+              <MappingFragment StoreEntitySet="Auditoria">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Evento" ColumnName="Evento" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="DataHora" ColumnName="DataHora" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banco">
+            <EntityTypeMapping TypeName="Model.Banco">
+              <MappingFragment StoreEntitySet="Banco">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContaCorrente">
+            <EntityTypeMapping TypeName="Model.ContaCorrente">
+              <MappingFragment StoreEntitySet="ContaCorrente">
+                <ScalarProperty Name="Conta" ColumnName="Conta" />
+                <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+                <ScalarProperty Name="Limite" ColumnName="Limite" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Despesa">
+            <EntityTypeMapping TypeName="Model.Despesa">
+              <MappingFragment StoreEntitySet="Despesa">
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Lancamento" ColumnName="Lancamento" />
+                <ScalarProperty Name="ValorPrevisto" ColumnName="ValorPrevisto" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Pagamento" ColumnName="Pagamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DespesaEventual">
+            <EntityTypeMapping TypeName="Model.DespesaEventual">
+              <MappingFragment StoreEntitySet="DespesaEventual">
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DespesaMensal">
+            <EntityTypeMapping TypeName="Model.DespesaMensal">
+              <MappingFragment StoreEntitySet="DespesaMensal">
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evento">
+            <EntityTypeMapping TypeName="Model.Evento">
+              <MappingFragment StoreEntitySet="Evento">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fornecedor">
+            <EntityTypeMapping TypeName="Model.Fornecedor">
+              <MappingFragment StoreEntitySet="Fornecedor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RazaoSocial" ColumnName="RazaoSocial" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FornecimentoServico">
+            <EntityTypeMapping TypeName="Model.FornecimentoServico">
+              <MappingFragment StoreEntitySet="FornecimentoServico">
+                <ScalarProperty Name="Fornecedor" ColumnName="Fornecedor" />
+                <ScalarProperty Name="Servico" ColumnName="Servico" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lancamento">
+            <EntityTypeMapping TypeName="Model.Lancamento">
+              <MappingFragment StoreEntitySet="Lancamento">
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="DataLancamento" ColumnName="DataLancamento" />
+                <ScalarProperty Name="ContaCredito" ColumnName="ContaCredito" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pagamento">
+            <EntityTypeMapping TypeName="Model.Pagamento">
+              <MappingFragment StoreEntitySet="Pagamento">
+                <ScalarProperty Name="Fornecimento" ColumnName="Fornecimento" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="DataEmissao" ColumnName="DataEmissao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissao">
+            <EntityTypeMapping TypeName="Model.Permissao">
+              <MappingFragment StoreEntitySet="Permissao">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlanoContas">
+            <EntityTypeMapping TypeName="Model.PlanoContas">
+              <MappingFragment StoreEntitySet="PlanoContas">
+                <ScalarProperty Name="Conta" ColumnName="Conta" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Consolidacao" ColumnName="Consolidacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servico">
+            <EntityTypeMapping TypeName="Model.Servico">
+              <MappingFragment StoreEntitySet="Servico">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="Model.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Usuario_Permissao" TypeName="Model.Usuario_Permissao" StoreEntitySet="Usuario_Permissao">
+            <EndProperty Name="Permissao">
+              <ScalarProperty Name="Nome" ColumnName="Nome" />
+            </EndProperty>
+            <EndProperty Name="Usuario">
+              <ScalarProperty Name="Login" ColumnName="Login" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

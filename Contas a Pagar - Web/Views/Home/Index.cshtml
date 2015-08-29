@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Página inicial";
+}
+
+<div class="jumbotron">
+    <h1>Contas a Pagar - AEDB</h1>
+    <p class="lead">Sistema de controle web de Contas a Pagar da Associação Educacional Dom Bosco</p>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <h2>Cadastros</h2>
+        <p>@Html.ActionLink("Fornecedores", "Index", "Fornecedors")</p>
+        <p>@Html.ActionLink("Materiais", "Index", "Materials")</p>
+        <p>@Html.ActionLink("Setores", "Index", "Setors")</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Cadastros bancários</h2>
+        <p>@Html.ActionLink("Agências", "Index", "Agencias")</p>
+        <p>@Html.ActionLink("Contas Correntes", "Index", "ContaCorrentes")</p>
+        <p>@Html.ActionLink("Bancos", "Index", "Bancoes")</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Cadastros financeiros</h2>
+        <p>@Html.ActionLink("Despesas", "Index", "Despesas")</p>
+        <p>@Html.ActionLink("Lançamento no Plano de Contas", "Index", "Lancamentoes")</p>
+        <p>@Html.ActionLink("Pagamento", "Index", "Pagamentoes")</p>
+        <p>@Html.ActionLink("Plano de Contas", "Index", "PlanoContas")</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Movimentação</h2>
+        <p>@Html.ActionLink("Fornecimento de Material", "Index", "FornecimentoMaterials")</p>
+        <p>@Html.ActionLink("Solicitação de Material", "Index", "SolicitacaoMaterials")</p>
+        <p>@Html.ActionLink("Cancelar Fornecimento", "NaoCancelados", "FornecimentoMaterials")</p>
+        <p>@Html.ActionLink("Aprovar Solicitação", "NaoAprovados", "SolicitacaoMaterials")</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Consultas</h2>
+        <p>@Html.ActionLink("Listagem bancária", "Index", "PesquisarCCs")</p>
+        <p>@Html.ActionLink("Número de Solicitações Por Setor", "Index", "NumSolicitacoesPorSetors")</p>
+        <p>@Html.ActionLink("Número de Fornecimentos Por Empresa", "Index", "NumFornecimentosPorEmpresas")</p>
+        <p>lorem ipsum</p>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@model Contas_a_Pagar___Web.Models.Agencia
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes da Agência</h2>
+
+<div>
+    <h4>Agência</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gerente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gerente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Banco1.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Banco1.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Retornar à lista", "Index")
+</p>

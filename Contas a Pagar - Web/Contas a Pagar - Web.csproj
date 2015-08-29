@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F269A56C-5250-43D9-8140-E54CCCFD73B3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Contas_a_Pagar___Web</RootNamespace>
+    <AssemblyName>Contas a Pagar - Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Scaffolding.EntityFramework.12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=x86" />
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AgenciasController.cs" />
+    <Compile Include="Controllers\BancoesController.cs" />
+    <Compile Include="Controllers\ContaCorrentesController.cs" />
+    <Compile Include="Controllers\DespesasController.cs" />
+    <Compile Include="Controllers\FornecedorsController.cs" />
+    <Compile Include="Controllers\FornecimentoMaterialsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LancamentoesController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MaterialsController.cs" />
+    <Compile Include="Controllers\NumFornecimentosPorEmpresasController.cs" />
+    <Compile Include="Controllers\NumSolicitacoesPorSetorsController.cs" />
+    <Compile Include="Controllers\PagamentoesController.cs" />
+    <Compile Include="Controllers\PesquisarCCsController.cs" />
+    <Compile Include="Controllers\PlanoContasController.cs" />
+    <Compile Include="Controllers\RelacaoFornecimentoesController.cs" />
+    <Compile Include="Controllers\SetorMaterialSolicitadoesController.cs" />
+    <Compile Include="Controllers\SetorsController.cs" />
+    <Compile Include="Controllers\SolicitacaoMaterialsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Agencia.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetRoles.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaims.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogins.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUsers.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Auditoria.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Banco.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Business\Fornecedor.cs" />
+    <Compile Include="Models\Business\FornecimentoMaterialViewModel.cs" />
+    <Compile Include="Models\Business\NumForViewModel.cs" />
+    <Compile Include="Models\Business\NumSolViewModel.cs" />
+    <Compile Include="Models\CAPModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAPModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CAPModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CAPModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAPModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContaCorrente.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Despesa.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DetalhesFornecimento_Result.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DetalhesSolicitacao_Result.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Evento.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Fornecedor.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FornecimentoMaterial.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FornecimentosMateriais.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ItensMaterialSolicitado.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lancamento.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Material.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MaterialSolicitado.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NumFornecimentosPorEmpresa.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NumSolicitacoesAprovadosPorSetor.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NumSolicitacoesNaoAprovadosPorSetor.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NumSolicitacoesPorSetor.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pagamento.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Permissao.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PesquisaAgencia.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PesquisarCC.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlanoContas.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RelacaoFornecimento.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RelacaoSolicitacao.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Setor.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SetorMaterialSolicitado.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SetorSolicitante.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SolicitacaoMaterial.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SolicitacoesMateriais.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Teste.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TodasSolicitacoesAprovadas_Result.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TodasSolicitacoesNaoAprovadas_Result.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TodasSolicitacoes_Result.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TodosFornecimentos_Result.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>CAPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\CAPModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CAPModel.edmx</DependentUpon>
+      <LastGenOutput>CAPModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CAPModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CAPModel.edmx</DependentUpon>
+      <LastGenOutput>CAPModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\CAPModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CAPModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CAPModel.edmx.diagram">
+      <DependentUpon>CAPModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\clock.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\SolicitacaoMaterials\Create.cshtml" />
+    <Content Include="Views\SolicitacaoMaterials\Delete.cshtml" />
+    <Content Include="Views\SolicitacaoMaterials\Details.cshtml" />
+    <Content Include="Views\SolicitacaoMaterials\Edit.cshtml" />
+    <Content Include="Views\SolicitacaoMaterials\Index.cshtml" />
+    <Content Include="Views\SetorMaterialSolicitadoes\Create.cshtml" />
+    <Content Include="Views\SetorMaterialSolicitadoes\Delete.cshtml" />
+    <Content Include="Views\SetorMaterialSolicitadoes\Details.cshtml" />
+    <Content Include="Views\SetorMaterialSolicitadoes\Edit.cshtml" />
+    <Content Include="Views\SetorMaterialSolicitadoes\Index.cshtml" />
+    <Content Include="Views\Fornecedors\Create.cshtml" />
+    <Content Include="Views\Fornecedors\Delete.cshtml" />
+    <Content Include="Views\Fornecedors\Details.cshtml" />
+    <Content Include="Views\Fornecedors\Edit.cshtml" />
+    <Content Include="Views\Fornecedors\Index.cshtml" />
+    <Content Include="Views\Materials\Create.cshtml" />
+    <Content Include="Views\Materials\Delete.cshtml" />
+    <Content Include="Views\Materials\Details.cshtml" />
+    <Content Include="Views\Materials\Edit.cshtml" />
+    <Content Include="Views\Materials\Index.cshtml" />
+    <Content Include="Views\RelacaoFornecimentoes\Create.cshtml" />
+    <Content Include="Views\RelacaoFornecimentoes\Delete.cshtml" />
+    <Content Include="Views\RelacaoFornecimentoes\Details.cshtml" />
+    <Content Include="Views\RelacaoFornecimentoes\Edit.cshtml" />
+    <Content Include="Views\RelacaoFornecimentoes\Index.cshtml" />
+    <Content Include="Views\PlanoContas\Create.cshtml" />
+    <Content Include="Views\PlanoContas\Delete.cshtml" />
+    <Content Include="Views\PlanoContas\Details.cshtml" />
+    <Content Include="Views\PlanoContas\Edit.cshtml" />
+    <Content Include="Views\PlanoContas\Index.cshtml" />
+    <Content Include="Views\Agencias\Create.cshtml" />
+    <Content Include="Views\Agencias\Delete.cshtml" />
+    <Content Include="Views\Agencias\Details.cshtml" />
+    <Content Include="Views\Agencias\Edit.cshtml" />
+    <Content Include="Views\Agencias\Index.cshtml" />
+    <Content Include="Views\Bancoes\Create.cshtml" />
+    <Content Include="Views\Bancoes\Delete.cshtml" />
+    <Content Include="Views\Bancoes\Details.cshtml" />
+    <Content Include="Views\Bancoes\Edit.cshtml" />
+    <Content Include="Views\Bancoes\Index.cshtml" />
+    <Content Include="Views\ContaCorrentes\Create.cshtml" />
+    <Content Include="Views\ContaCorrentes\Delete.cshtml" />
+    <Content Include="Views\ContaCorrentes\Details.cshtml" />
+    <Content Include="Views\ContaCorrentes\Edit.cshtml" />
+    <Content Include="Views\ContaCorrentes\Index.cshtml" />
+    <Content Include="Views\PesquisarCCs\Index.cshtml" />
+    <Content Include="Views\Pagamentoes\Create.cshtml" />
+    <Content Include="Views\Pagamentoes\Delete.cshtml" />
+    <Content Include="Views\Pagamentoes\Details.cshtml" />
+    <Content Include="Views\Pagamentoes\Edit.cshtml" />
+    <Content Include="Views\Pagamentoes\Index.cshtml" />
+    <Content Include="Views\Despesas\Create.cshtml" />
+    <Content Include="Views\Despesas\Delete.cshtml" />
+    <Content Include="Views\Despesas\Details.cshtml" />
+    <Content Include="Views\Despesas\Edit.cshtml" />
+    <Content Include="Views\Despesas\Index.cshtml" />
+    <Content Include="Views\Lancamentoes\Create.cshtml" />
+    <Content Include="Views\Lancamentoes\Delete.cshtml" />
+    <Content Include="Views\Lancamentoes\Details.cshtml" />
+    <Content Include="Views\Lancamentoes\Edit.cshtml" />
+    <Content Include="Views\Lancamentoes\Index.cshtml" />
+    <Content Include="Views\FornecimentoMaterials\Delete.cshtml" />
+    <Content Include="Views\FornecimentoMaterials\Details.cshtml" />
+    <Content Include="Views\FornecimentoMaterials\Edit.cshtml" />
+    <Content Include="Views\FornecimentoMaterials\Index.cshtml" />
+    <Content Include="Views\FornecimentoMaterials\Create.cshtml" />
+    <Content Include="Views\Setors\Create.cshtml" />
+    <Content Include="Views\Setors\Delete.cshtml" />
+    <Content Include="Views\Setors\Details.cshtml" />
+    <Content Include="Views\Setors\Edit.cshtml" />
+    <Content Include="Views\Setors\Index.cshtml" />
+    <Content Include="Views\NumSolicitacoesPorSetors\Details.cshtml" />
+    <Content Include="Views\NumSolicitacoesPorSetors\Index.cshtml" />
+    <Content Include="Views\FornecimentoMaterials\NaoCancelados.cshtml" />
+    <Content Include="Views\FornecimentoMaterials\Cancelar.cshtml" />
+    <Content Include="Views\SolicitacaoMaterials\NaoAprovados.cshtml" />
+    <Content Include="Views\SolicitacaoMaterials\Aprovar.cshtml" />
+    <Content Include="Views\NumFornecimentosPorEmpresas\Details.cshtml" />
+    <Content Include="Views\NumFornecimentosPorEmpresas\Index.cshtml" />
+    <Content Include="Views\SolicitacaoMaterials\Detalhes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>39098</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:39098/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

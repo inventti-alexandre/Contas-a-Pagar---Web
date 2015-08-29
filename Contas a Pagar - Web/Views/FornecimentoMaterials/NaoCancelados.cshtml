@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Contas_a_Pagar___Web.Models.FornecimentoMaterial>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cancelado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fornecedor1.RazaoSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pagamento.Fornecimento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cancelado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fornecedor1.RazaoSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pagamento.Fornecimento)
+        </td>
+        <td>
+            @Html.ActionLink("Cancelar", "Cancelar", new { id=item.ID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,42 @@
+﻿@model Contas_a_Pagar___Web.Models.ContaCorrente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ContaCorrente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Limite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Limite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Agencia1.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Agencia1.Endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlanoContas.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlanoContas.Descricao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Conta }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

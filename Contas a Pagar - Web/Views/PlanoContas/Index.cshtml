@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Contas_a_Pagar___Web.Models.PlanoContas>
+
+@{
+    ViewBag.Title = "Índice";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Inserir", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Consolidacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContaCorrente.Conta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Consolidacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContaCorrente.Conta)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Conta }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Conta }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.Conta })
+        </td>
+    </tr>
+}
+
+</table>

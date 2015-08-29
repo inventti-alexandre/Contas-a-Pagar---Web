@@ -1,0 +1,64 @@
+﻿@model Contas_a_Pagar___Web.Models.NumSolViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NumSolicitacoesPorSetor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Total de solicitações: @Html.DisplayFor(m => m.ListaSolicitacoes.Count)<br />
+        </dt>
+        @foreach (var item in Model.ListaSolicitacoes)
+        {
+
+            <dt>
+                SolicitacaoID: @Html.ActionLink(@item.SolicitacaoID.ToString(), "Details", "SolicitacaoMaterials", new { id = item.SolicitacaoID }, null)
+            </dt>
+
+            <dd>
+                @*@item.SolicitacaoID*@
+            </dd>
+            <dt>
+                ValorTotal
+            </dt>
+
+            <dd>
+                @item.ValorTotal
+            </dd>
+            <dd><br /></dd>
+        }
+        @*@foreach (var item in Model.ListaDetalhesSolicitacoes)
+        {
+
+            <dt>
+                @item.Qtde
+            </dt>
+        }*@
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorTotal)
+        </dd>*@
+
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.SetorID }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

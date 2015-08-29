@@ -1,0 +1,44 @@
+﻿@model Contas_a_Pagar___Web.Models.NumForViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NumFornecimentosPorEmpresa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model.ListaFornecimentos)
+        {
+            <dt>
+                FornecimentoID
+            </dt>
+
+            <dd>
+                @*@item.FornecimentoID*@
+                @Html.ActionLink(@item.FornecimentoID.ToString(), "Details", "FornecimentoMaterials", new { id = item.FornecimentoID }, null)
+            </dd>
+            @*<dt>
+                RazaoSocial
+            </dt>
+
+            <dd>
+                @item.RazaoSocial
+            </dd>*@
+            <dt>
+                Data
+            </dt>
+
+            <dd>
+                @item.Data
+            </dd>
+            <dd><br /></dd>
+        }
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

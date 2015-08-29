@@ -1,0 +1,56 @@
+﻿@model Contas_a_Pagar___Web.Models.NumSolViewModel
+
+<div>
+    <h4>SolicitacaoMaterial</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        @foreach (var item in Model.ListaDetalhesSolicitacoes)
+        {
+            <dt>
+                Solicitação: 
+            </dt>
+            <dd>
+               @item.Solicitacao
+            </dd>
+            <dt>
+                MaterialID:
+            </dt>
+            <dd>
+               @item.MaterialID
+            </dd>
+            <dt>
+                Material:
+            </dt>
+            <dd>
+               @item.Descricao
+            </dd>
+            <dt>
+                Quantidade:
+            </dt>
+            <dd>
+                @item.Qtde
+            </dd>
+            <dt>
+                Valor unitário:
+            </dt>
+            <dd>
+                @item.PrecoUnitario 
+            </dd>
+            <dt>
+                Valor total:
+            </dt>
+            <dd>
+                @(item.PrecoUnitario*item.Qtde)
+            </dd>
+            <dd>
+                <br />
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

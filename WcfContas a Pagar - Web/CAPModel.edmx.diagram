@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="00af3c3f2ae040de8de9ddc88a39f1b0" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Agencia" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Auditoria" Width="1.5" PointX="10" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Banco" Width="1.5" PointX="1.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ContaCorrente" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Despesa" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DespesaEventual" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DespesaMensal" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Evento" Width="1.5" PointX="7.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Fornecedor" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FornecimentoServico" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Lancamento" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Pagamento" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Permissao" Width="1.5" PointX="7.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PlanoContas" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Servico" Width="1.5" PointX="3" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Usuario" Width="1.5" PointX="10" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Agencia_Banco" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ContaCorrente_Agencia" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Auditoria_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ContaCorrente_PlanoContas" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Despesa_DespesaEventual" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Despesa_DespesaMensal" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Despesa_Lancamento1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Despesa_Pagamento" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_FornecimentoServico_Fornecedor" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_FornecimentoServico_Pagamento" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_FornecimentoServico_Servico" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Lancamento_PlanoContas" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Usuario_Permissao" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
